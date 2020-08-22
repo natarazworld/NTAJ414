@@ -27,7 +27,7 @@ public class SelectTest4 {
 					st=con.createStatement();
 				//prepare SQL query
 				       //select count(*) from emp;
-				query="SELECT COUNT(*) FROM1 EMP";
+				query="SELECT COUNT(*) FROM EMP";
 			 //send and execute SQL query in DB s/w	
 				if(st!=null)
 					 rs=st.executeQuery(query);
@@ -37,6 +37,11 @@ public class SelectTest4 {
 					//System.out.println("records count::"+rs.getInt(1));
 					System.out.println("records count::"+rs.getInt("count(*)"));
 				}//if
+				
+				System.out.println("..............................");
+				int count=st.executeUpdate("delete from student where sno=102");
+				System.out.println("deleted count records::"+count);
+				
 	    }//try
 		catch(SQLException se) {
 			System.out.println(se);
