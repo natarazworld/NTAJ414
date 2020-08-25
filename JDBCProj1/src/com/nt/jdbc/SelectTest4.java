@@ -42,6 +42,12 @@ public class SelectTest4 {
 				int count=st.executeUpdate("delete from student where sno=102");
 				System.out.println("deleted count records::"+count);
 				
+				
+				System.out.println(" con object class name::"+con.getClass());
+				System.out.println(" st object class name::"+st.getClass());
+				System.out.println(" rs object class name::"+rs.getClass());
+				
+				
 	    }//try
 		catch(SQLException se) {
 			System.out.println(se);
