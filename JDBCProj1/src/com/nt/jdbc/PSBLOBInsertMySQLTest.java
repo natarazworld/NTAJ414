@@ -8,21 +8,19 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-/*CREATE TABLE "SYSTEM"."ARTIST_INFO" 
-(	"ARTISID" NUMBER(10,0) NOT NULL ENABLE, 
-	"ARTISTNAME" VARCHAR2(20 BYTE), 
-	"ARTISTADDRS" VARCHAR2(20 BYTE), 
-	"INCOME" FLOAT(126), 
-	"PHOTO" BLOB, 
-	"VIDEO" BLOB, 
-	 CONSTRAINT "ARTIST_INFO_PK" PRIMARY KEY ("ARTISID")) ;
-	 
-	 CREATE SEQUENCE  "SYSTEM"."ARTIST_ID_SEQ"  MINVALUE 1 MAXVALUE 1000000 INCREMENT BY 1 START WITH 1;
+/*CREATE TABLE `ntaj414db`.`artist_info` (
+  `artistId` INT NOT NULL AUTO_INCREMENT,
+  `artistname` VARCHAR(20) NULL,
+  `artistaddrs` VARCHAR(20) NULL,
+  `income` FLOAT NULL,
+  `photo` BLOB NULL,
+  `video` BLOB NULL,
+   PRIMARY KEY (`artistId`));
 	  */
 
 
-public class PSBLOBInsertTest {
-  private static final String ARTIST_INSERT_QUERY="INSERT INTO ARTIST_INFO VALUES(ARTIST_ID_SEQ.NEXTVAL,?,?,?,?,?)";
+public class PSBLOBInsertMySQLTest {
+  private static final String ARTIST_INSERT_QUERY="INSERT INTO ARTIST_INFO(ARTISTNAME,ARTISTADDRS,INCOME,PHOTO,VIDEO) VALUES(?,?,?,?,?)";
 	public static void main(String[] args) {
 		Scanner sc=null;
 		String  name=null,addrs=null,photoLocation=null, videoLocation=null;
@@ -50,7 +48,8 @@ public class PSBLOBInsertTest {
 			 photoIS=new FileInputStream(photoLocation);
 			 videoIS=new FileInputStream(videoLocation);
 			 //establish the connection
-			 con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
+			 con=DriverManager.getConnection("jdbc:mysql:///ntaj414db","root","root");
+			
 			 //create PreparedStatement obj
 			 if(con!=null)
 				 ps=con.prepareStatement(ARTIST_INSERT_QUERY);
