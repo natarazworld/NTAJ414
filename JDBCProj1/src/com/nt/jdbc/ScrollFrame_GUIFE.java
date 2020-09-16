@@ -1,5 +1,6 @@
 package com.nt.jdbc;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +18,7 @@ import javax.swing.JTextField;
 
 public class ScrollFrame_GUIFE extends JFrame implements ActionListener {
 	private static final String  GET_STUDENTS_QUERY="SELECT SNO,SNAME,SADD,AVG FROM  STUDENT";
-    private  JLabel lno,lname,ladd,lavg;
+    private  JLabel lno,lname,ladd,lavg, lmsg=null;
     private  JTextField  tno,tname,taddrs,tavg;
     private  JButton  bFirst,bNext,bLast,bPrevious;
     private Connection con;
@@ -63,7 +65,8 @@ public class ScrollFrame_GUIFE extends JFrame implements ActionListener {
 		bPrevious.addActionListener(this);
 		bLast.addActionListener(this);
 		
-		
+		lmsg=new JLabel("");
+		add(lmsg);
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // When close frame window with (x) button the App will be terminated
@@ -100,14 +103,14 @@ public class ScrollFrame_GUIFE extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		System.out.println("ScrollFrame_GUIFE.actionPerformed(-)");
+		var flag=false;   //java 10  feature  ---  Local variable type inference  (type is decied by compiler) 
+		 // empty the label messages
+		   lmsg.setText("");
 		if(ae.getSource()==bFirst) {
 			System.out.println("first button");
 			try {
 				rs.first();
-				tno.setText(rs.getString(1));  // assigning RS first record first col value to tno text box
-				tname.setText(rs.getString(2));
-				taddrs.setText(rs.getString(3));
-				tavg.setText(rs.getString(4));
+				flag=true;
 			}//try
 			catch(SQLException se) {
 				se.printStackTrace();
@@ -119,10 +122,12 @@ public class ScrollFrame_GUIFE extends JFrame implements ActionListener {
 			try {
 				if(!rs.isLast()) {
 			    	rs.next();
-				  tno.setText(rs.getString(1));  // assigning RS next record first col value to tno text box
-				  tname.setText(rs.getString(2));
-				   taddrs.setText(rs.getString(3));
-				   tavg.setText(rs.getString(4));
+				   flag=true;
+				}
+				else {
+					
+					lmsg.setText("Do not click on next button, u r already in last record");
+					lmsg.setForeground(Color.red);
 				}
 			}//try
 			catch(SQLException se) {
@@ -134,10 +139,11 @@ public class ScrollFrame_GUIFE extends JFrame implements ActionListener {
 			try {
 				if(!rs.isFirst()) {
 			    	rs.previous();
-				  tno.setText(rs.getString(1));  // assigning RS next record first col value to tno text box
-				  tname.setText(rs.getString(2));
-				   taddrs.setText(rs.getString(3));
-				   tavg.setText(rs.getString(4));
+				 flag=true;
+				}
+				else {
+					lmsg.setText("Do not click on previous button, u r already in first record");
+					lmsg.setForeground(Color.red);
 				}
 			}//try
 			catch(SQLException se) {
@@ -148,16 +154,26 @@ public class ScrollFrame_GUIFE extends JFrame implements ActionListener {
 			System.out.println("Last button");
 			try {
 				rs.last();
-				tno.setText(rs.getString(1));  // assigning RS Last record first col value to tno text box
-				tname.setText(rs.getString(2));
-				taddrs.setText(rs.getString(3));
-				tavg.setText(rs.getString(4));
+				flag=true;
 			}//try
 			catch(SQLException se) {
 				se.printStackTrace();
 			}//catch
 		}//else
+		// set data to text boxes
+		if(flag==true) {
+			try {
+			tno.setText(rs.getString(1));
+			tname.setText(rs.getString(2));
+			taddrs.setText(rs.getString(3));
+			tavg.setText(rs.getString(4));
+			}
+			catch(SQLException se) {
+				se.printStackTrace();
+			}
+			
+		}//if
 
 	}//actionPerformed(-)
 
-}
+}//class
