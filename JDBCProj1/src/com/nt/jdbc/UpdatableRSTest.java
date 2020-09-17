@@ -6,13 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ScrollableRSTest {
+public class UpdatableRSTest {
 
 	public static void main(String[] args) {
 		Connection con=null;
 		Statement st=null;
 		ResultSet rs=null;
-		int count=0;
 		try {
 			//establish the connection
 			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system", "manager");
@@ -23,17 +22,37 @@ public class ScrollableRSTest {
 			//create ResultSet object (scrollable)
 			if(st!=null)
 			rs=st.executeQuery("SELECT SNO,SNAME,SADD,AVG FROM STUDENT");
-			
-			System.out.println(" Scrollable RS created....");
-			
+		//process RS	
 			if(rs!=null) {
-				while(rs.next()) {
-					rs.refreshRow();
-					if(count==0)
-						Thread.sleep(30000);  //during this period  modify DB table records  from SQL prompt/developer
-					System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"   "+rs.getFloat(4));
-					count++;
-				}//while
+				//read operation
+				/*				System.out.println("Read Operation");
+								while(rs.next()) {
+									System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"   "+rs.getFloat(4));
+								}//while
+				*/
+				/*System.out.println("..........insert operation...................");
+				//insert operation
+				rs.moveToInsertRow();  //create empty record
+				rs.updateInt(1,4567);
+				rs.updateString(2, "amitab");
+				rs.updateString(3, "hyd");
+				rs.updateFloat(4, 89.55f);
+				rs.insertRow();  //inserts the record
+				*/				
+				
+				/*System.out.println("..........update operation...................");
+				//update  operation
+				rs.absolute(4);
+				rs.updateString(2, "smallB");
+				rs.updateRow(); //updates the record
+				*/
+				
+				System.out.println("..........delete operation...................");
+				//delete operation
+				rs.absolute(4);
+				rs.deleteRow(); //deletes the record
+				
+				
 			}//if
 		}//try
 		catch(SQLException se) {
