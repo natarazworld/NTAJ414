@@ -15,23 +15,30 @@ public class ScrollableRSTest {
 		int count=0;
 		try {
 			//establish the connection
-			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system", "manager");
+			//con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system", "manager");
+			con=DriverManager.getConnection("jdbc:mysql:///ntaj414db","root", "root");
 			//create Statement object
 			if(con!=null)
 				  st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 						                                        ResultSet.CONCUR_UPDATABLE);
+			
+             
+			
+			
 			//create ResultSet object (scrollable)
-			if(st!=null)
+			if(st!=null) {
 			rs=st.executeQuery("SELECT SNO,SNAME,SADD,AVG FROM STUDENT");
+			}
+			
 			
 			System.out.println(" Scrollable RS created....");
 			
 			if(rs!=null) {
 				while(rs.next()) {
 					rs.refreshRow();
-					if(count==0)
-						Thread.sleep(30000);  //during this period  modify DB table records  from SQL prompt/developer
-					System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"   "+rs.getFloat(4));
+					/*					if(count==0)
+											Thread.sleep(30000);  //during this period  modify DB table records  from SQL prompt/developer
+					*/					System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"   "+rs.getFloat(4));
 					count++;
 				}//while
 			}//if
