@@ -21,7 +21,7 @@ public class ScrollableRSTest {
 			if(con!=null)
 				  st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 						                                        ResultSet.CONCUR_UPDATABLE);
-			
+			   st.setMaxRows(3);
              
 			
 			
