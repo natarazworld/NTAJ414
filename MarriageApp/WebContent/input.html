@@ -1,0 +1,34 @@
+
+
+                                   
+<body bgcolor="magenta">
+  <h1 style="color:red;text-align:center">Shaadi.com</h1>
+    <center>
+        <img  src="images/marriage.jpg"   width="400" height="100">
+    </center>
+    
+    <form action="marriageurl" method="POST">
+       <table bgcolor="aqua" align="center">
+            <tr>
+               <td>Person name::  </td>
+               <td><input type="text" name="pname"> </td>
+            </tr>
+            <tr>
+               <td>Person age::  </td>
+               <td><input type="text" name="page"> </td>
+            </tr>
+            <tr>
+               <td>Person Gender::  </td>
+               <td>
+                     <input type="radio" name="gender" value="M">Male
+                     <input type="radio" name="gender" value="F" checked>FeMale
+                </td>
+            </tr>
+            <tr>
+               <td><input type="submit"  value="Check Marriage Eligibility"> </td>
+               <td><input type="reset"  value="cancel"> </td>
+            </tr>
+       </table>
+    </form>
+      <a href="marriageurl">getWishMessage</a>
+</body>
