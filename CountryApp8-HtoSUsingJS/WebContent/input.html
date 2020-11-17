@@ -1,0 +1,20 @@
+<body bgcolor="lightblue" >
+             <h1 style="color:red;text-align:center"> Html to  Servlet communicaiton Using JS </h1>
+                <form action="countryurl"  name="frm"  method="POST">
+                     Select country ::  <select  name="country"  onchange="send()">
+                                                           <option value=""  selected>--select---</option>
+                                                           <option  value="0"> India </option>
+                                                           <option  value="1"> China </option>
+                                                           <option  value="2"> USA </option>
+                                                           <option  value="3"> Germony </option>
+                                                           <option  value="4"> Japan </option>
+                                                        </select>
+                
+                </form>
+</body>
+     <script language="JavaScript">
+             function  send(){
+                 frm.submit();  //JS method invoked form object (frm)
+             }
+     </script> 
+</html>
