@@ -1,0 +1,130 @@
+
+
+<h1 style="color:red;text-align:center">working with different types of form comps</h1>
+
+<form action="formurl"  method="POST" >
+   <table  align="center" bgcolor="cyan">
+      <tr>
+         <td> Personname::  </td>
+         <td><input type="text" name="pname" placeholder="enter name">  </td>
+      </tr>
+      <tr>
+         <td> Person age::  </td>
+         <td><input type="text" name="page" placeholder="enter age">  </td>
+      </tr>
+      <tr>
+         <td> Person address::  </td>
+         <td><textarea name="paddrs" rows="3" cols="16" placeholder="enter address">
+                </textarea>
+          </td>
+      </tr>
+        <tr>
+         <td> Person Gender::  </td>
+         <td><input type="radio" name="gender" value="M">Male
+                 <input type="radio" name="gender" value="F" checked>FeMale
+           </td>
+      </tr>
+       <tr>
+         <td>Marital Status::  </td>
+         <td><input type="checkbox" name="ms" value="married">Married
+           </td>
+      </tr>
+        <tr>
+         <td>Qualification  </td>
+         <td>
+             <select name="qlfy">
+                <option value="" selected>->select a value-- </option>
+                 <option value="engg">B.E/B,Tech </option>
+                 <option value="medical">MBBS/MD </option>
+                 <option value="arts">BA/MA </option>
+                 <option value="commerce">B.com/M.com </option>
+                 <option value="science">B.sc/M.sc </option>
+             </select>
+           </td>
+      </tr>
+       <tr>
+         <td>known Languages  </td>
+         <td>
+             <select name="languages" multiple size="3">
+                <option value="english" selected>English </option>
+                 <option value="hindi" selected>Hindi </option>
+                 <option value="telugu">Telugu</option>
+                 <option value="marathi">Marathi </option>
+                 <option value="odia">Odia </option>
+                 <option value="bhojpuri">Bhojpuri </option>
+                 <option value="urdu">Urdu </option>
+                 <option value="bengali">Bengali </option>
+                 <option value="somalian">Somalian </option>
+             </select>
+           </td>
+      </tr>
+      <tr>
+        <td> Hobies </td>
+        <td> 
+              <input type="checkbox" name="hb" value="reading" checked> Reading Books <br>
+              <input type="checkbox" name="hb" value="watching" checked> Watching Movies <br>
+              <input type="checkbox" name="hb" value="playing"> Playing Games <br>
+              <input type="checkbox" name="hb" value="listening"> Listening Songs <br>
+          </td>
+      </tr>
+      
+      <tr>
+        <td> mobile Number:: </td>
+        <td> 
+              <input type="tel" name="phone"> 
+          </td>
+      </tr>
+      <tr>
+        <td> Date of Birth:: </td>
+        <td> 
+              <input type="date" name="dob"/> 
+          </td>
+      </tr>
+      <tr>
+        <td> Time of Birth:: </td>
+        <td> 
+              <input type="time" name="tob"/> 
+          </td>
+      </tr>
+      <tr>
+        <td> Email Id:: </td>
+        <td> 
+              <input type="email" name="email"/> 
+          </td>
+      </tr>
+       <tr>
+        <td> Favorite color:: </td>
+        <td> 
+              <input type="color" name="favColor"/> 
+          </td>
+      </tr>
+      <tr>
+        <td> Salary Range:: </td>
+        <td> 
+              10000<input type="range" name="salary" min="10000" max="1000000" /> 100000 
+          </td>
+      </tr>
+      <tr>
+        <td> Facebook URL:: </td>
+        <td> 
+              <input type="url" name="fbUrl" />  
+          </td>
+      </tr>
+       <tr>
+        <td>Faviourite number:: </td>
+        <td> 
+              <input type="number" name="favNumber"   min="0" max="9"/>  
+          </td>
+      </tr>
+      <tr>
+        <td>Birth Month and Year:: </td>
+        <td> 
+              <input type="month" name="birthMonth" />  
+          </td>
+      </tr>
+      <tr>
+        <td><input type="image" width="100" height="100"  src="images/submit.jfif"> </td>
+        <td><input type="submit" value="reset">  </td>
+      </tr>
+   </table>
+</form>
