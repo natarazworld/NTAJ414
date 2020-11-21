@@ -23,9 +23,18 @@ public class FormServlet extends HttpServlet {
 		String gender=req.getParameter("gender");
 		String addrs=req.getParameter("paddrs");
 		String ms=req.getParameter("ms");
+		if(ms==null)
+			ms="single";
+		
 		String qlfy=req.getParameter("qlfy");
 		String hobies[]=req.getParameterValues("hb");
+		if(hobies==null)
+			  hobies=new String[] {"no hobies are selected"};
+		
 		String languages[]=req.getParameterValues("languages");
+		 if(languages==null)
+			 languages=new String[] {"no languages are selected"};
+		 
 		long phone=Long.parseLong(req.getParameter("phone"));
 		String email=req.getParameter("email");
 		int favNumber=Integer.parseInt(req.getParameter("favNumber"));
