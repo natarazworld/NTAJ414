@@ -22,7 +22,7 @@ public class MarriageServlet extends HttpServlet {
 		int age=Integer.parseInt(req.getParameter("page"));
 		String gender=req.getParameter("gender");
 		//write b.logic or request processing logic
-		pw.println("<h1 style='color:blue;text-align:center'> Shaadi.com </h1>");
+		pw.println("<h1 style='color:maroon;text-align:center'> Shaadi.com (Marriage Breuro) </h1>");
 		
 		if(gender.equalsIgnoreCase("M")) {
 			 if(age<21)

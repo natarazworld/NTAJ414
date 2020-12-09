@@ -20,6 +20,8 @@ public class HtmlServlet extends  HttpServlet
 	@Override
 	public void init(ServletConfig cg) throws ServletException {
 		System.out.println("HtmlServlet.init(-)");
+		System.out.println("db user init param value::"+cg.getInitParameter("dbuser"));
+		System.out.println("db pwd init param value::"+cg.getInitParameter("dbpwd"));
 	}
 	
 	//2nd service (-,-) method
