@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,10 +30,17 @@ public class EmployeeSearchServlet extends HttpServlet {
 		 try {
 		 //read form data
 		 no=Integer.parseInt(req.getParameter("eno"));
+		 //get Access to Servletconfig obj
+		 ServletConfig  cg=getServletConfig();
+		 String driver=cg.getInitParameter("driverClass");
+		 String url =cg.getInitParameter("jdbcUrl");
+		 String username=cg.getInitParameter("dbuser");
+		 String pwd=cg.getInitParameter("dbpwd");
+		 pw.println("<br> EmployeeSearchServlet::  dbuser init param value:: "+cg.getInitParameter("dbuser"));
 		 //write jdbc code
-			 Class.forName("oracle.jdbc.driver.OracleDriver");
+			 Class.forName(driver);
 			 //establish the connection
-		 con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");	 
+		 con=DriverManager.getConnection(url,username,pwd);	 
 		 //create PreparedStatement obj having pre-compiledSQL query
 		 if(con!=null)
 		   ps=con.prepareStatement(GET_EMP_DETAILS);
