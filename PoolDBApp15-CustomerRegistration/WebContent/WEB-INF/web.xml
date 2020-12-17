@@ -1,0 +1,14 @@
+<web-app>
+  <display-name>PoolDBApp15-CustomerRegistration</display-name>
+  <welcome-file-list>
+    <welcome-file>input.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+     <servlet-name>pool</servlet-name>
+     <servlet-class>com.nt.servlet.CustomerRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>pool</servlet-name>
+     <url-pattern>/customerurl</url-pattern>
+  </servlet-mapping>
+</web-app>
