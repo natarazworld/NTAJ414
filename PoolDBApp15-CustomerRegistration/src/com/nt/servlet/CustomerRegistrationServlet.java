@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import javax.naming.InitialContext;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,11 @@ public class CustomerRegistrationServlet extends HttpServlet {
 		String cname=req.getParameter("cname");
 		String cadd=req.getParameter("cadd");
 		float billAmt=Float.parseFloat(req.getParameter("billAmt"));
-		try(Connection con=getPooledJdbcConnection("DsJndi")) {
+		//get access to servletcontext obj
+		ServletContext sc=getServletContext();
+		//read context param value
+		String jndiName=sc.getInitParameter("jndi");
+		try(Connection con=getPooledJdbcConnection(jndiName)) {
 		 if(con!=null)
 			 try(PreparedStatement ps=con.prepareStatement(INSERT_CUSTOMER_QUERY)){
 				if(ps!=null) {
