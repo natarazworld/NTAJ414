@@ -1,3 +1,4 @@
+===oracle ============
 CREATE TABLE "SYSTEM"."LAYERED_STUDENT" 
    (	"SNO" NUMBER(10,0) NOT NULL ENABLE, 
 	"SNAME" VARCHAR2(20 BYTE), 
@@ -6,3 +7,14 @@ CREATE TABLE "SYSTEM"."LAYERED_STUDENT"
 	"RESULT" VARCHAR2(20 BYTE), 
 	"SADD" VARCHAR2(20 BYTE), 
 	 CONSTRAINT "LAYERED_STUDENT_PK" PRIMARY KEY ("SNO"))
+	========mysql ================
+	CREATE TABLE `ntaj414db`.`layered_student` (
+  `sno` INT NOT NULL AUTO_INCREMENT,
+  `sname` VARCHAR(20) NULL,
+  `sadd` VARCHAR(20) NULL,
+  `total` INT NULL,
+  `avg` FLOAT NULL,
+  `result` VARCHAR(20) NULL,
+  PRIMARY KEY (`sno`),
+  UNIQUE INDEX `sno_UNIQUE` (`sno` ASC) VISIBLE);
+	

@@ -3,12 +3,15 @@ package com.nt.service;
 import com.nt.bo.StudentBO;
 import com.nt.dao.IStudentDAO;
 import com.nt.dao.StudentDAOImpl;
+import com.nt.dao.StudentDAOMysqlImpl;
 import com.nt.dto.StudentDTO;
 
 public class StudentMgmtServiceImpl implements IStudentMgmtService {
 	private IStudentDAO dao;
 	public StudentMgmtServiceImpl() throws Exception{
-		dao=new  StudentDAOImpl();
+		System.out.println("StudentMgmtServiceImpl.0-param constructor");
+		//dao=new  StudentDAOImpl();
+		dao=new  StudentDAOMysqlImpl();
 	}
 
 	@Override
