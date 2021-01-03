@@ -43,8 +43,8 @@ public class FileUplodServlet extends HttpServlet {
 	    	  //Specify  upload load location in server machine file system
 	    	  UploadBean upb=new UploadBean();
 	    	  //file uploading restrictions
-	    	  upb.setMaxfiles(5);
-	    	  upb.setFilesizelimit(10*1024);
+	    	  upb.setMaxfiles(15);
+	    	 // upb.setFilesizelimit(10*1024);
 	    	  upb.setOverwrite(true);
 	    	  upb.setBlacklist("install.exe,setup.exe,abc.jpg");
 	    	  upb.setFolderstore(resumeLocation);

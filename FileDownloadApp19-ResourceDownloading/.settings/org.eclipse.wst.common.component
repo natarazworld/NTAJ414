@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="FileDownloadApp19-ResourceDownloading">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="java-output-path" value="/FileDownloadApp19-ResourceDownloading/build/classes"/>
+        <property name="context-root" value="FileDownloadApp19-ResourceDownloading"/>
+    </wb-module>
+</project-modules>
