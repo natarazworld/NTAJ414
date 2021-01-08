@@ -17,7 +17,7 @@
     </init-param>
     <init-param>
        <param-name>dbuser</param-name>
-       <param-value>system</param-value>
+       <param-value>system1</param-value>
     </init-param>
     <init-param>
        <param-name>dbpwd</param-name>

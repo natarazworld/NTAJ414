@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>EmployeeSearchApp13</display-name>
+  <welcome-file-list>
+    <welcome-file>input.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Cfg jsp file with url pattern -->
+  <servlet>
+      <servlet-name>errJsp</servlet-name>
+      <jsp-file>/error.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>errJsp</servlet-name>
+     <url-pattern>/errJspurl</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Cfg html file with url pattern -->
+  <servlet>
+      <servlet-name>errHtml</servlet-name>
+      <jsp-file>/my_error.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>errHtml</servlet-name>
+     <url-pattern>/errHtmlUrl</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+</web-app>
