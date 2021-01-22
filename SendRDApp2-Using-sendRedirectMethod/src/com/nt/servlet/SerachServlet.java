@@ -3,6 +3,7 @@ package com.nt.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,12 @@ public class SerachServlet extends HttpServlet {
 			 url="https://www.ask.com/web?q="+ss;
 		 }
 		 //perform sendRedirection
+		 System.out.println("before res.sendRedirect(-)");
 		 res.sendRedirect(url);
+		 RequestDispatcher rd=req.getRequestDispatcher("/abc.html");
+		 rd.forward(req,res);
+		 
+		 System.out.println("after res.sendRedirect(-)");
 	}
 
 	
