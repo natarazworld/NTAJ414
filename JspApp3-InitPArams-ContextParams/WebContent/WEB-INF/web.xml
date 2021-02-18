@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+<context-param>
+        <param-name>dbpwd</param-name>
+        <param-value>manager</param-value>
+     </context-param>
+  <servlet>
+     <servlet-name>f</servlet-name>
+     <jsp-file>/first.jsp</jsp-file>
+     <init-param>
+        <param-name>dbuser</param-name>
+        <param-value>system</param-value>
+     </init-param>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>f</servlet-name>
+     <url-pattern>/firsturl</url-pattern>
+  </servlet-mapping>
+
+</web-app>
