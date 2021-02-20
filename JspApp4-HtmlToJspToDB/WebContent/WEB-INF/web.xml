@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>JspApp4-HtmlToJspToDB</display-name>
+  <welcome-file-list>
+    <welcome-file>employee_form.html</welcome-file>
+  </welcome-file-list>
+     <servlet>
+          <servlet-name>employee</servlet-name>
+          <jsp-file>/WEB-INF/pages/employee_process.jsp</jsp-file>
+          <init-param>
+              <param-name>driver</param-name>
+              <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+          </init-param>
+          <init-param>
+              <param-name>url</param-name>
+              <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+          </init-param>
+          <init-param>
+              <param-name>dbuser</param-name>
+              <param-value>system</param-value>
+          </init-param>
+           <init-param>
+              <param-name>dbpwd</param-name>
+              <param-value>manager</param-value>
+          </init-param>
+          
+     </servlet>
+     <servlet-mapping>
+         <servlet-name>employee</servlet-name>
+         <url-pattern>/employeeurl</url-pattern>
+     </servlet-mapping>
+  
+</web-app>
