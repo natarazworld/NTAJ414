@@ -1,0 +1,19 @@
+<web-app>
+  <display-name>PoolDBApp15-CustomerRegistration</display-name>
+  <welcome-file-list>
+    <welcome-file>input.jsp</welcome-file>
+  </welcome-file-list>   
+  <context-param>
+     <param-name>jndi</param-name>
+     <param-value>java:/comp/env/DsJndi</param-value>
+  </context-param>
+  
+  <servlet>
+     <servlet-name>pool</servlet-name>
+     <servlet-class>com.nt.servlet.CustomerRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>pool</servlet-name>
+     <url-pattern>/customerurl</url-pattern>
+  </servlet-mapping>
+</web-app>
