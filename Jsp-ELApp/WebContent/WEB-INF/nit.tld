@@ -1,0 +1,13 @@
+<taglib>
+     <tlib-version>1.0</tlib-version>
+     <jsp-version>2.2</jsp-version>
+     <short-name>nit</short-name>
+     <uri>http://www.nit.com/el</uri>
+     <function>
+         <name>showWishMessage</name>
+         <function-class>com.nt.service.WishMessageGenerator</function-class>
+         <function-signature>
+           java.lang.String  generate(java.lang.String)
+         </function-signature>
+     </function>
+ </taglib>    
