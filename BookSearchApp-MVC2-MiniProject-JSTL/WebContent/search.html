@@ -1,0 +1,55 @@
+
+<script language="JavaScript">
+  function isHtml(){
+	  //set value to hidden box indicating  "HtmlOutput" button is clicked
+	  frm.source.value="HTML";
+	  validate();
+  }
+  function isExcel(){
+	  //set value to hidden box  indicating that  "ExcelOutput" button is clicked
+	  frm.source.value="EXCEL";
+	  validate();
+  }
+  
+  function validate(){
+	  if(frm.category.selectedIndex==0){
+		  document.getElementById("categoryError").innerHTML="We must select category";
+		  return false;
+	  }
+	  else{
+		  document.getElementById("categoryError").innerHTML="";
+		  //submit the request
+		  frm.submit();
+		  return true;
+	  }
+  }//function
+  
+  
+</script>
+
+<h1 style="color:red;text-align:center">BookS Search By Category</h1>
+     
+<form name="frm" action="controller" method="POST"  target="f2">
+  <center>   <span style="color:red;text-align:center"  id="categoryError"></span>  </center>
+    <table align="center" boder="1" bgcolor="cyan"  >
+       <tr>
+          <td>Select Book categorie(s) </td>
+          <td><select name="category">
+                     <option value="" selected>--select a  value ---</option>
+                      <option value="JAVA">java</option>
+                      <option value=".net">.net</option>
+                      <option value="PHP">php</option>
+                      <option value="ORACLE">oracle</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+          <td><input type="button" value="Excel output" onClick="isExcel()">  </td>
+          <td><input type="button" value="html output" onClick="isHtml()">  </td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="hidden" name="source">  </td>
+        </tr>
+    </table>
+</form>
+     
